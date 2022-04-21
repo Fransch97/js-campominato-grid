@@ -91,7 +91,7 @@ main{
     width: calc(100% / 10);
 }
 .clicked.even{
-    background-color: aqua;
+    background-color: greenyellow;
 }
 .clicked.odd{
     background-color: red;

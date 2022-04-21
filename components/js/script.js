@@ -24,8 +24,8 @@ console.log("working");
 
 const container = document.querySelector('.container');
 const play = document.querySelector('button');
-console.log(play)
-const randomNumber = []
+console.log(play);
+const randomNumber = [];
 
 function ripristina(){
     randomNumber.length = 0;
@@ -35,12 +35,11 @@ function ripristina(){
 
 play.addEventListener('click', ()=>{
     var audios = new Audio ('components/sound/play.mp3');
-    audios.play()
+    audios.play();
     ripristina();
     level = document.querySelector('select').value;
     console.log(level);
     oneToRandom(checkNumberLevel(level),checkLevel(level));
-    console.log(allOdd)
    
 }
 )
@@ -53,8 +52,8 @@ function creatCubes(number,randomico,level){
     cube.classList.add(isEvenOdd(randomico));
     cube.innerHTML = `<span>${number} <span>`;
     container.append(cube);
-    const soundcontroll = cube.className
-    console.log(soundcontroll)
+    const soundcontroll = cube.className;
+    console.log(soundcontroll);
    
     cube.addEventListener('click', function(){
         this.classList.add('clicked');
@@ -65,11 +64,11 @@ function creatCubes(number,randomico,level){
         }else{
             var audio = new Audio('components/sound/lose.wav');
             audio.play();
-            cube.innerHTML = `<span id="heart">&#128163;</span> `
+            cube.innerHTML = `<span id="heart">&#128163;</span> `;
             container.innerHTML += 
             `
             <div class="lose">
-                <h1>Hai perso <br> riavvia la partita!</h1>
+                <h1>You lose <br> Replay!</h1>
             </div>
             `;
     }
@@ -86,11 +85,11 @@ function creatCubes(number,randomico,level){
 //controll evenen ore odd
 function isEvenOdd(number){
     if(number % 2){
-        console.log("odd")
-        return 'odd'
+        console.log("odd");
+        return 'odd';
     }
-    console.log("even")
-    return 'even'
+    console.log("even");
+    return 'even';
 }
 // isEvenOdd(5) tested 
 
@@ -105,10 +104,10 @@ function oneToRandom(toNumber, level){
         if(!randomNumber.includes(numberRandom)){
             exists = true;
             randomNumber.push(numberRandom);
-            const banana = creatCubes(numberRandom, numberRandom, level)
+             creatCubes(numberRandom, numberRandom, level)
            
         }else{
-            console.log("esisteva già")
+            console.log("esisteva già");
         }
     }
      
@@ -122,10 +121,10 @@ function oneToRandom(toNumber, level){
 // level ckeck function
 function checkLevel(level){
     if(level==="easy"){
-        return 'small'
+        return 'small';
     }
     if(level==="hard"){
-        return 'mid'
+        return 'mid';
     }
     if(level==="crazy"){
         return 'xl'
@@ -135,10 +134,10 @@ function checkLevel(level){
 //number of cube
 function checkNumberLevel(level){
     if(level==="easy"){
-        return 49
+        return 49;
     }
     if(level==="hard"){
-        return 81
+        return 81;
     }
-    return 100
+    return 100;
 }
