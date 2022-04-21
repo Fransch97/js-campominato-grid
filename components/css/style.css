@@ -63,6 +63,7 @@ main{
     width: 700px;
     display: flex;
     flex-wrap: wrap;
+    position: relative;
 }
 .cubo{
     display: flex;
@@ -92,6 +93,12 @@ main{
 .clicked.odd{
     background-color: red;
 }
+.odd:focus{
+    background-color: green;
+}
+.even:focus{
+    background-color: green;
+}
 span{
     display: none;
 }
@@ -115,5 +122,21 @@ footer{
 #heart{
     color: red;
     display: inline-block;
+}
+.lose{
+    background-color: rgba(0, 0, 0, 0.104);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 20;
+    color:aliceblue ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lose h1{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 50px;
 }
 /*END FOOTER  */

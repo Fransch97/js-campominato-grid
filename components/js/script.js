@@ -15,6 +15,11 @@
 // Le validazioni e i controlli possiamo farli anche in un secondo momento.
 // buon lavoro! :faccia_leggermente_sorridente:
 
+
+
+
+
+
 console.log("working");
 
 const container = document.querySelector('.container');
@@ -29,11 +34,14 @@ function ripristina(){
 
 
 play.addEventListener('click', ()=>{
+    var audios = new Audio ('components/sound/play.mp3');
+    audios.play()
     ripristina();
     level = document.querySelector('select').value;
     console.log(level);
-    oneToRandom(checkNumberLevel(level),checkLevel(level))
-    
+    oneToRandom(checkNumberLevel(level),checkLevel(level));
+    console.log(allOdd)
+   
 }
 )
 
@@ -53,11 +61,17 @@ function creatCubes(number,randomico,level){
         if(soundcontroll.includes("even")){
             var audio = new Audio('components/sound/wow.wav');
             audio.play();
+            
         }else{
             var audio = new Audio('components/sound/lose.wav');
             audio.play();
-            ripristina();
-            container.innerHTML = `<h1>Hai perso </h1>`
+            cube.innerHTML = `<span id="heart">&#128163;</span> `
+            container.innerHTML += 
+            `
+            <div class="lose">
+                <h1>Hai perso <br> riavvia la partita!</h1>
+            </div>
+            `;
     }
        
     })
@@ -83,15 +97,15 @@ function isEvenOdd(number){
 //random numbers from 1 to
 function oneToRandom(toNumber, level){
     
- for(let i = 0; i < toNumber; i++){
+ for(let i = 1; i <= toNumber; i++){
     let exists, numberRandom;
     while(!exists){
-        // numberRandom = Math.ceil(Math.random()*toNumber)
+        numberRandom = Math.ceil(Math.random()*toNumber)
         console.log(i);
-        if(!randomNumber.includes(i)){
+        if(!randomNumber.includes(numberRandom)){
             exists = true;
             randomNumber.push(numberRandom);
-            const banana = creatCubes(i, i, level)
+            const banana = creatCubes(numberRandom, numberRandom, level)
            
         }else{
             console.log("esisteva già")
