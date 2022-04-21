@@ -51,25 +51,33 @@ button, select{
 
 /* MAIN  */
 main{
-    height: calc(100vh - (95px + 40px));
+    height: calc(100vh - 135px );
     display: flex;
     justify-content: center;
     align-items: center;
 }
-/* .container.small{
-    border: 2px solid white;
-    height: 500px;
-    width: 500px;
-} */
-/* .container.mid{
-    border: 2px solid white;
-    height: 700px;
-    width: 700px;
-} */
+
 .container.xl{
     border: 2px solid white;
-    height: 800px;
-    width: 800px;
+    height: 90%;
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.cubo.small{
+    border: 3px solid forestgreen;
+    height: calc(100% / 7);
+    width: calc(100% / 7);
+}
+.cubo.mid{
+    border: 3px solid forestgreen;
+    height: calc(100% / 9);
+    width: calc(100% / 9);
+}
+.cubo.xl{
+    border: 3px solid forestgreen;
+    height: calc(100% / 10);
+    width: calc(100% / 10);
 }
 /*END MAIN  */
 
@@ -81,6 +89,9 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 #heart{
     color: red;
