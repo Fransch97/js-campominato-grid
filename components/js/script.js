@@ -56,7 +56,9 @@ function creatCubes(number,randomico,level){
         }else{
             var audio = new Audio('components/sound/lose.wav');
             audio.play();
-        }
+            ripristina();
+            container.innerHTML = `<h1>Hai perso </h1>`
+    }
        
     })
     
