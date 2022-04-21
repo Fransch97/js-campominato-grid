@@ -20,8 +20,16 @@ console.log("working");
 const container = document.querySelector('.container');
 const play = document.querySelector('button');
 console.log(play)
+const randomNumber = []
+
+function ripristina(){
+    randomNumber.length = 0;
+    container.innerHTML = "";
+}
+
 
 play.addEventListener('click', ()=>{
+    ripristina();
     level = document.querySelector('select').value;
     console.log(level);
     oneToRandom(checkNumberLevel(level),checkLevel(level))
@@ -50,7 +58,6 @@ function isEvenOdd(number){
 // isEvenOdd(5) tested 
 
 //random numbers from 1 to
-const randomNumber = []
 function oneToRandom(toNumber, level){
     
  for(let i = 0; i < toNumber; i++){
