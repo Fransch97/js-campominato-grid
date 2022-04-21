@@ -18,12 +18,21 @@
 console.log("working");
 
 const container = document.querySelector('.container');
+const play = document.querySelector('button');
+console.log(play)
+
+play.addEventListener('click', ()=>{
+    level = document.querySelector('select').value;
+    console.log(level);
+    oneToRandom(checkNumberLevel(level),checkLevel(level))
+}
+)
 
 //div generator
-function creatCubes(number,randomico){
+function creatCubes(number,randomico,level){
     const cube = document.createElement('div');
     cube.classList.add('cubo');
-    cube.classList.add('xl');
+    cube.classList.add(level);
     cube.classList.add(isEvenOdd(randomico));
     cube.innerHTML = `${number}`
     container.append(cube);
@@ -42,7 +51,7 @@ function isEvenOdd(number){
 
 //random numbers from 1 to
 const randomNumber = []
-function oneToRandom(toNumber){
+function oneToRandom(toNumber, level){
     
  for(let i = 0; i < toNumber; i++){
     let exists, numberRandom;
@@ -52,7 +61,7 @@ function oneToRandom(toNumber){
         if(!randomNumber.includes(numberRandom)){
             exists = true;
             randomNumber.push(numberRandom);
-            creatCubes(numberRandom, numberRandom)
+            creatCubes(numberRandom, numberRandom, level)
         }else{
             console.log("esisteva già")
         }
@@ -61,5 +70,30 @@ function oneToRandom(toNumber){
  }
 }
 
-oneToRandom(100)
 // console.log(randomNumber)tested
+
+
+
+// level ckeck function
+function checkLevel(level){
+    if(level==="easy"){
+        return 'small'
+    }
+    if(level==="hard"){
+        return 'mid'
+    }
+    if(level==="crazy"){
+        return 'xl'
+    }
+}
+
+//number of cube
+function checkNumberLevel(level){
+    if(level==="easy"){
+        return 49
+    }
+    if(level==="hard"){
+        return 81
+    }
+    return 100
+}
