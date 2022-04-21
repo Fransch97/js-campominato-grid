@@ -114,5 +114,6 @@ footer{
 }
 #heart{
     color: red;
+    display: inline-block;
 }
 /*END FOOTER  */

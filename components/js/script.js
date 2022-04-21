@@ -33,6 +33,7 @@ play.addEventListener('click', ()=>{
     level = document.querySelector('select').value;
     console.log(level);
     oneToRandom(checkNumberLevel(level),checkLevel(level))
+    
 }
 )
 
@@ -44,13 +45,27 @@ function creatCubes(number,randomico,level){
     cube.classList.add(isEvenOdd(randomico));
     cube.innerHTML = `<span>${number} <span>`;
     container.append(cube);
+    const soundcontroll = cube.className
+    console.log(soundcontroll)
+   
     cube.addEventListener('click', function(){
         this.classList.add('clicked');
-        var audio = new Audio('components/sound/wow.wav');
-        audio.play();
+        if(soundcontroll.includes("even")){
+            var audio = new Audio('components/sound/wow.wav');
+            audio.play();
+        }else{
+            var audio = new Audio('components/sound/lose.wav');
+            audio.play();
+        }
+       
     })
     
 }
+
+//function to se if even ore odd
+// function bombchecker(){
+//     if()
+// }
 
 //controll evenen ore odd
 function isEvenOdd(number){
