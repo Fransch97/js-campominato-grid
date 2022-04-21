@@ -15,4 +15,4 @@
 // Le validazioni e i controlli possiamo farli anche in un secondo momento.
 // buon lavoro! :faccia_leggermente_sorridente:
 
-console.log("working")
+console.log("working");
