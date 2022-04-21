@@ -46,6 +46,8 @@ function creatCubes(number,randomico,level){
     container.append(cube);
     cube.addEventListener('click', function(){
         this.classList.add('clicked');
+        var audio = new Audio('components/sound/wow.wav');
+        audio.play();
     })
     
 }
