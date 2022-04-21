@@ -69,12 +69,12 @@ function oneToRandom(toNumber, level){
  for(let i = 0; i < toNumber; i++){
     let exists, numberRandom;
     while(!exists){
-        numberRandom = Math.ceil(Math.random()*toNumber)
-        console.log(numberRandom);
-        if(!randomNumber.includes(numberRandom)){
+        // numberRandom = Math.ceil(Math.random()*toNumber)
+        console.log(i);
+        if(!randomNumber.includes(i)){
             exists = true;
             randomNumber.push(numberRandom);
-            const banana = creatCubes(numberRandom, numberRandom, level)
+            const banana = creatCubes(i, i, level)
            
         }else{
             console.log("esisteva già")
