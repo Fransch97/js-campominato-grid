@@ -52,6 +52,24 @@ button, select{
 /* MAIN  */
 main{
     height: calc(100vh - (95px + 40px));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* .container.small{
+    border: 2px solid white;
+    height: 500px;
+    width: 500px;
+} */
+/* .container.mid{
+    border: 2px solid white;
+    height: 700px;
+    width: 700px;
+} */
+.container.xl{
+    border: 2px solid white;
+    height: 800px;
+    width: 800px;
 }
 /*END MAIN  */
 
