@@ -42,8 +42,12 @@ function creatCubes(number,randomico,level){
     cube.classList.add('cubo');
     cube.classList.add(level);
     cube.classList.add(isEvenOdd(randomico));
-    cube.innerHTML = `${number}`
+    cube.innerHTML = `<span>${number} <span>`;
     container.append(cube);
+    cube.addEventListener('click', function(){
+        this.classList.add('clicked');
+    })
+    
 }
 
 //controll evenen ore odd
@@ -68,7 +72,8 @@ function oneToRandom(toNumber, level){
         if(!randomNumber.includes(numberRandom)){
             exists = true;
             randomNumber.push(numberRandom);
-            creatCubes(numberRandom, numberRandom, level)
+            const banana = creatCubes(numberRandom, numberRandom, level)
+           
         }else{
             console.log("esisteva già")
         }

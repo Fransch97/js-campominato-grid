@@ -86,11 +86,17 @@ main{
     height: calc(100% / 10);
     width: calc(100% / 10);
 }
-.even{
+.clicked.even{
     background-color: aqua;
 }
-.odd{
+.clicked.odd{
     background-color: red;
+}
+span{
+    display: none;
+}
+.cubo.clicked span{
+    display: block;
 }
 /*END MAIN  */
 
