@@ -17,15 +17,17 @@
 
 console.log("working");
 
-let container = document.querySelector('.container');
+const container = document.querySelector('.container');
 
 //div generator
-function creatCubes(){
+function creatCubes(number,randomico){
     const cube = document.createElement('div');
-    
-    console.log(cube);
+    cube.classList.add('cubo');
+    cube.classList.add('xl');
+    cube.classList.add(isEvenOdd(randomico));
+    cube.innerHTML = `${number}`
+    container.append(cube);
 }
-creatCubes()
 
 //controll evenen ore odd
 function isEvenOdd(number){
@@ -38,8 +40,8 @@ function isEvenOdd(number){
 }
 // isEvenOdd(5) tested 
 
-const randomNumber = []
 //random numbers from 1 to
+const randomNumber = []
 function oneToRandom(toNumber){
     
  for(let i = 0; i < toNumber; i++){
@@ -50,6 +52,7 @@ function oneToRandom(toNumber){
         if(!randomNumber.includes(numberRandom)){
             exists = true;
             randomNumber.push(numberRandom);
+            creatCubes(numberRandom, numberRandom)
         }else{
             console.log("esisteva già")
         }
@@ -58,5 +61,5 @@ function oneToRandom(toNumber){
  }
 }
 
-oneToRandom(10)
-console.log(randomNumber)
+oneToRandom(100)
+// console.log(randomNumber)tested
