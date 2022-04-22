@@ -28,6 +28,8 @@ play.addEventListener('click', ()=>{
     console.log(bombsContainer)
 }
 )
+let wincounter = 0;
+
 //div generator
 function creatCubes(number,level){
     const cube = document.createElement('div');
@@ -40,12 +42,24 @@ function creatCubes(number,level){
         this.classList.add('clicked');
         const text = parseInt(this.innerText);
         console.log(text)
+        let oddSS = document.querySelectorAll('span');
+        let oddSScubo = document.querySelectorAll('.cubo');
+        const winChance = oddSScubo.length - bombsContainer.length 
         if(!bombsContainer.includes(text)){
             cube.classList.add("even");
-
+            wincounter+= 1;
             var audio = new Audio('components/sound/wow.wav');
             audio.play();
             score++;
+            console.log(wincounter, winChance)
+            if(wincounter === winChance){
+                container.innerHTML += 
+            `
+            <div class="lose">
+                <h1>You WIN!!!! <br>after ${score} try <br> Replay!</h1>
+            </div>
+            `;
+            }
         }else if(bombsContainer.includes(text)){
             cube.classList.add("odd");
 
@@ -58,8 +72,7 @@ function creatCubes(number,level){
                 <h1>You lose <br>after ${score} try <br> Replay!</h1>
             </div>
             `;
-            let oddSS = document.querySelectorAll('span');
-            let oddSScubo = document.querySelectorAll('.cubo');
+            
             console.log(oddSS);
             for(let i = 0; i < oddSS.length; i++){
                 let addossunique = parseInt(oddSS[i].innerHTML);
@@ -149,7 +162,7 @@ function checkNumberLevel(level){
 //bombslimiter
 function bombslimitador(level){
     if(level==="easy"){
-        return 5;
+        return 1;
     }
     if(level==="hard"){
         return 15;
@@ -168,6 +181,7 @@ function BombsGeneratoruis(toNumber, bombslimit){
            console.log("picked bomb number",pickedBomb)
        }
     }
+    console.log("array di bombe", bombsContainer)
 }
 
 // BombsGeneratoruis(20)
