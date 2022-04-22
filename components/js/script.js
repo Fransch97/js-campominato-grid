@@ -6,10 +6,14 @@ console.log(play);
 const randomNumber = [];
 const bombs = [];
 let score = 1;
+let bombslimit ;
+
 function ripristina(){
     randomNumber.length = 0;
     container.innerHTML = "";
     score = 1;
+   bombsContainer.length = 0;
+
 }
 
 
@@ -20,7 +24,7 @@ play.addEventListener('click', ()=>{
     level = document.querySelector('select').value;
     console.log(level);
     oneToRandom(checkNumberLevel(level),checkLevel(level));
-    BombsGeneratoruis(checkNumberLevel(level))
+    BombsGeneratoruis(checkNumberLevel(level),bombslimitador(level))
     console.log(bombsContainer)
 }
 )
@@ -132,22 +136,31 @@ function checkLevel(level){
 //number of cube
 function checkNumberLevel(level){
     if(level==="easy"){
-        bombslimit = 5;
         return 49;
     }
     if(level==="hard"){
-        bombslimit = 15;
         return 81;
     }
-    bombslimit = 99;
 
     return 100;
 }
 
+
+//bombslimiter
+function bombslimitador(level){
+    if(level==="easy"){
+        return 5;
+    }
+    if(level==="hard"){
+        return 15;
+    }
+    if(level==="crazy"){
+        return 99
+    }
+}
 //bombsGerator
-let bombslimit ;
 const bombsContainer = [];
-function BombsGeneratoruis(toNumber){
+function BombsGeneratoruis(toNumber, bombslimit){
     while(bombsContainer.length<bombslimit){
        const pickedBomb = Math.ceil(Math.random()*toNumber);
        if(!bombsContainer.includes(pickedBomb)){
