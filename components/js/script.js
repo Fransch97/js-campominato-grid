@@ -45,9 +45,13 @@ function creatCubes(number,level){
         let oddSS = document.querySelectorAll('span');
         let oddSScubo = document.querySelectorAll('.cubo');
         const winChance = oddSScubo.length - bombsContainer.length 
+        const bans = this.className
         if(!bombsContainer.includes(text)){
-            cube.classList.add("even");
-            wincounter+= 1;
+            if(!bans.includes("even")){
+                cube.classList.add("even");
+                wincounter+= 1;
+
+            }
             var audio = new Audio('components/sound/wow.wav');
             audio.play();
             score++;
@@ -72,7 +76,8 @@ function creatCubes(number,level){
                 <h1>You lose <br>after ${score} try <br> Replay!</h1>
             </div>
             `;
-            
+            let oddSS = document.querySelectorAll('span');
+            let oddSScubo = document.querySelectorAll('.cubo');
             console.log(oddSS);
             for(let i = 0; i < oddSS.length; i++){
                 let addossunique = parseInt(oddSS[i].innerHTML);
