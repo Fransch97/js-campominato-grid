@@ -125,6 +125,7 @@ footer{
 #heart{
     color: red;
     display: inline-block;
+    font-size: 35px;
 }
 .lose{
     background-color: rgba(0, 0, 0, 0.104);

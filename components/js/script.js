@@ -4,10 +4,11 @@ const container = document.querySelector('.container');
 const play = document.querySelector('button');
 console.log(play);
 const randomNumber = [];
-
+let score = 1;
 function ripristina(){
     randomNumber.length = 0;
     container.innerHTML = "";
+    score = 1;
 }
 
 
@@ -37,6 +38,7 @@ function creatCubes(number,randomico,level){
         if(soundcontroll.includes("even")){
             var audio = new Audio('components/sound/wow.wav');
             audio.play();
+            score++;
             
         }else{
             var audio = new Audio('components/sound/lose.wav');
@@ -45,7 +47,7 @@ function creatCubes(number,randomico,level){
             container.innerHTML += 
             `
             <div class="lose">
-                <h1>You lose <br> Replay!</h1>
+                <h1>You lose <br>after ${score} try <br> Replay!</h1>
             </div>
             `;
             let oddSS = document.querySelectorAll('.odd');
