@@ -56,14 +56,22 @@ function creatCubes(number,level){
                 <h1>You lose <br>after ${score} try <br> Replay!</h1>
             </div>
             `;
-            let oddSS = document.querySelectorAll('.odd');
+            let oddSS = document.querySelectorAll('.cubo');
             console.log(oddSS);
-            for(let i = 1; i < oddSS.length; i++){
+            // for(let i = 0; i < bombsContainer.length; i++){
+            //     let addossunique = oddSS[i];
+            //     console.log(addossunique)
+            //     addossunique.classList.add('clicked');
+            //     addossunique.innerHTML = `<span id="heart">&#128163;</span> `
+            // }
+            for(let i = 0; i < oddSS.length; i++){
                 let addossunique = oddSS[i];
                 console.log(addossunique)
+                if(bombsContainer.includes( oddSS[i].innerText) )
                 addossunique.classList.add('clicked');
                 addossunique.innerHTML = `<span id="heart">&#128163;</span> `
             }
+            
             
     }
        
