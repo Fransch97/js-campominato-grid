@@ -29,10 +29,8 @@ function creatCubes(number,level){
     const cube = document.createElement('div');
     cube.classList.add('cubo');
     cube.classList.add(level);
-    cube.innerHTML = `<span>${number} <span>`;
+    cube.innerHTML = `<span>${number} </span>`;
     container.append(cube);
-    const soundcontroll = cube.className;
-    console.log(soundcontroll);
    
     cube.addEventListener('click', function(){
         this.classList.add('clicked');
@@ -56,20 +54,22 @@ function creatCubes(number,level){
                 <h1>You lose <br>after ${score} try <br> Replay!</h1>
             </div>
             `;
-            let oddSS = document.querySelectorAll('.cubo');
+            let oddSS = document.querySelectorAll('span');
+            let oddSScubo = document.querySelectorAll('.cubo');
             console.log(oddSS);
-            // for(let i = 0; i < bombsContainer.length; i++){
-            //     let addossunique = oddSS[i];
-            //     console.log(addossunique)
-            //     addossunique.classList.add('clicked');
-            //     addossunique.innerHTML = `<span id="heart">&#128163;</span> `
-            // }
             for(let i = 0; i < oddSS.length; i++){
-                let addossunique = oddSS[i];
-                console.log(addossunique)
-                if(bombsContainer.includes( oddSS[i].innerText) )
-                addossunique.classList.add('clicked');
-                addossunique.innerHTML = `<span id="heart">&#128163;</span> `
+                let addossunique = parseInt(oddSS[i].innerHTML);
+                console.log("numero span prima del if",addossunique)
+                console.log("array bombe", bombsContainer)
+                console.log("container cercato", oddSS[i])
+                if(bombsContainer.includes(addossunique) ){
+                    console.log("lo span che sta nel bombscontainer",oddSS[i])
+                const spani = oddSS[i]
+
+                oddSScubo[i].classList.add('clicked', 'odd');
+                spani.innerHTML = `<span id="heart">&#128163;</span> `
+                }
+                
             }
             
             
@@ -132,17 +132,20 @@ function checkLevel(level){
 //number of cube
 function checkNumberLevel(level){
     if(level==="easy"){
-        // bombslimit = 16;
+        bombslimit = 5;
         return 49;
     }
     if(level==="hard"){
+        bombslimit = 15;
         return 81;
     }
+    bombslimit = 99;
+
     return 100;
 }
 
 //bombsGerator
-let bombslimit = 16;
+let bombslimit ;
 const bombsContainer = [];
 function BombsGeneratoruis(toNumber){
     while(bombsContainer.length<bombslimit){
